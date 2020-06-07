@@ -20,16 +20,20 @@
           href="https://github.com/nuxt/nuxt.js"
           target="_blank"
           class="button--grey"
+          style="pointer-events: none"          
         >
           GitHub
         </a>
       </div>
-      <div>
+      <div class="new-div">
         <el-button>This is a button supported by element-ui</el-button>
-        <el-select v-model="value" name="source" id="source">
-          <el-option value="Peach">🍑</el-option>
-          <el-option value="Apple">🍏</el-option>
-          <el-option value="Avocado">🥑</el-option>
+        <el-select v-model="value" name="source" placeholder="favorite fruit">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
         </el-select>
       </div>
     </div>
@@ -45,6 +49,21 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  data() {
+    return {
+      options: [{
+        value: 'apple',
+        label: '🍎'
+      },{
+        value: 'peach',
+        label: '🍑'
+      },{
+        value: 'avocado',
+        label: '🥑'
+      }],
+      value: ''
+    }
   }
 }
 </script>
@@ -79,5 +98,9 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+.new-div {
+  margin-top: 1rem;
 }
 </style>
