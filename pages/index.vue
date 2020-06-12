@@ -27,7 +27,7 @@
       </div>
       <div class="new-div">
         <el-button>This is a button supported by element-ui</el-button>
-        <el-select v-model="value" name="source" placeholder="favorite fruit">
+        <el-select @change="showFruit" v-model="value" name="source" placeholder="favorite fruit">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -35,6 +35,7 @@
             :value="item.value">
           </el-option>
         </el-select>
+        <el-input v-model="inputValue" placeholder="please give me some money" clearable></el-input>
       </div>
     </div>
   </div>
@@ -42,9 +43,6 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-
-//TODO: How to change element-ui theme
-// import '../static/element-variables.scss'
 
 export default {
   components: {
@@ -62,7 +60,31 @@ export default {
         value: 'avocado',
         label: '🥑'
       }],
-      value: ''
+      value: '',
+      inputValue: '💴💴💴'
+    }
+  },
+  methods: {
+    showFruit(value) {
+      this.$confirm(`Is this your favorite ` + value + '?', 'Check', {
+        distinguishCancelAndClose: true,
+        confirmButtonText: 'Yess',
+        cancelButtonText: 'Noo'
+      })
+      .then(() => {
+        this.$message({
+          type: 'success',
+          message: 'Nice choice'
+        });
+      })
+      .catch(action => {
+        this.$message({
+          type: 'info',
+          message: action === 'cancel'
+            ? 'Not sure yet'
+            : 'Leave it there'
+        })
+      })
     }
   }
 }
@@ -101,6 +123,7 @@ export default {
 }
 
 .new-div {
+  display: flex;
   margin-top: 1rem;
 }
 </style>
