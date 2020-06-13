@@ -9,44 +9,61 @@
         My prime Nuxt.js project
       </h2>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
+        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
           Documentation
         </a>
         <a
           href="https://github.com/nuxt/nuxt.js"
           target="_blank"
           class="button--grey"
-          style="pointer-events: none"          
+          style="pointer-events: none"
         >
           GitHub
         </a>
       </div>
       <div class="new-div">
         <el-button>This is a button supported by element-ui</el-button>
-        <el-select @change="showFruit" v-model="value1" name="source" placeholder="favorite fruit">
+        <el-select
+          @change="showFruit"
+          v-model="value1"
+          name="source"
+          placeholder="favorite fruit"
+        >
           <el-option
             v-for="item in options"
             :key="item.value"
             :label="item.label"
-            :value="item.value">
+            :value="item.value"
+          >
           </el-option>
         </el-select>
-        <el-input v-model="value2" placeholder="please give me some money" clearable @focus="showMeTheMoney($event)" ref="inputRef"></el-input>
+        <el-input
+          v-model="value2"
+          placeholder="please give me some money"
+          clearable
+          @focus="showMeTheMoney($event)"
+          ref="inputRef"
+        ></el-input>
       </div>
       <div class="block">
-        <el-slider v-model="value3" :format-tooltip="formatTooltip" vertical height="100px"></el-slider>
-        <el-calendar class="calendar" v-model="value4" :range="['2020-06-08', '2020-06-14']"></el-calendar>
+        <el-slider
+          v-model="value3"
+          :format-tooltip="formatTooltip"
+          vertical
+          height="100px"
+        ></el-slider>
+        <el-calendar
+          class="calendar"
+          v-model="value4"
+          :range="['2020-06-08', '2020-06-14']"
+        ></el-calendar>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Logo from "~/components/Logo.vue";
 
 export default {
   components: {
@@ -54,56 +71,58 @@ export default {
   },
   data() {
     return {
-      options: [{
-        value: 'apple',
-        label: '🍎'
-      },{
-        value: 'peach',
-        label: '🍑'
-      },{
-        value: 'avocado',
-        label: '🥑'
-      }],
-      value1: '',
-      value2: '💴💴💴',
+      options: [
+        {
+          value: "apple",
+          label: "🍎"
+        },
+        {
+          value: "peach",
+          label: "🍑"
+        },
+        {
+          value: "avocado",
+          label: "🥑"
+        }
+      ],
+      value1: "",
+      value2: "💴💴💴",
       value3: 48,
-      value4: new Date()    
-      }
+      value4: new Date()
+    };
   },
   mounted() {
-      this.$refs.inputRef.$el.children[0].focus()
+    this.$refs.inputRef.$el.children[0].focus();
   },
   methods: {
     showFruit(value) {
-      this.$confirm(`Is this your favorite ` + value + '?', 'Check', {
+      this.$confirm(`Is this your favorite ` + value + "?", "Check", {
         distinguishCancelAndClose: true,
-        confirmButtonText: 'Yess',
-        cancelButtonText: 'Noo'
+        confirmButtonText: "Yess",
+        cancelButtonText: "Noo"
       })
-      .then(() => {
-        this.$message({
-          type: 'success',
-          message: 'Nice choice'
-        });
-      })
-      .catch(action => {
-        this.$message({
-          type: 'info',
-          message: action === 'cancel'
-            ? 'Not sure yet'
-            : 'Leave it there'
+        .then(() => {
+          this.$message({
+            type: "success",
+            message: "Nice choice"
+          });
         })
-      })
+        .catch(action => {
+          this.$message({
+            type: "info",
+            message: action === "cancel" ? "Not sure yet" : "Leave it there"
+          });
+        });
     },
     showMeTheMoney(e) {
       // @focus is a input events
-      e.target.style.borderColor = 'teal'
+      e.target.style.borderColor = "teal";
     },
     formatTooltip(val) {
-      return val/100
+      return val / 100;
     }
   }
-}
+};
 </script>
 
 <style>
@@ -117,8 +136,8 @@ export default {
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
@@ -145,7 +164,6 @@ export default {
 .block {
   margin: 1rem 1rem 1rem 0;
   display: flex;
-
 }
 /* TODO el-calendar select doesn't work */
 .calendar {
