@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <logo />
+      <!-- <logo /> -->
       <h1 class="title">
         nuxt-ui-element
       </h1>
@@ -27,7 +27,7 @@
       </div>
       <div class="new-div">
         <el-button>This is a button supported by element-ui</el-button>
-        <el-select @change="showFruit" v-model="value" name="source" placeholder="favorite fruit">
+        <el-select @change="showFruit" v-model="value1" name="source" placeholder="favorite fruit">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -35,7 +35,11 @@
             :value="item.value">
           </el-option>
         </el-select>
-        <el-input v-model="inputValue" placeholder="please give me some money" clearable></el-input>
+        <el-input v-model="value2" placeholder="please give me some money" clearable @focus="showMeTheMoney($event)" ref="inputRef"></el-input>
+      </div>
+      <div class="block">
+        <el-slider v-model="value3" :format-tooltip="formatTooltip" vertical height="100px"></el-slider>
+        <el-calendar class="calendar" v-model="value4" :range="['2020-06-08', '2020-06-14']"></el-calendar>
       </div>
     </div>
   </div>
@@ -60,9 +64,14 @@ export default {
         value: 'avocado',
         label: '🥑'
       }],
-      value: '',
-      inputValue: '💴💴💴'
-    }
+      value1: '',
+      value2: '💴💴💴',
+      value3: 48,
+      value4: new Date()    
+      }
+  },
+  mounted() {
+      this.$refs.inputRef.$el.children[0].focus()
   },
   methods: {
     showFruit(value) {
@@ -85,6 +94,13 @@ export default {
             : 'Leave it there'
         })
       })
+    },
+    showMeTheMoney(e) {
+      // @focus is a input events
+      e.target.style.borderColor = 'teal'
+    },
+    formatTooltip(val) {
+      return val/100
     }
   }
 }
@@ -125,5 +141,14 @@ export default {
 .new-div {
   display: flex;
   margin-top: 1rem;
+}
+.block {
+  margin: 1rem 1rem 1rem 0;
+  display: flex;
+
+}
+/* TODO el-calendar select doesn't work */
+.calendar {
+  width: 50%;
 }
 </style>
