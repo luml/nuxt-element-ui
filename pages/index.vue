@@ -22,7 +22,9 @@
         </a>
       </div>
       <div class="new-div">
-        <el-button>This is a button supported by element-ui</el-button>
+        <el-button @click="open"
+          >This is a button supported by element-ui</el-button
+        >
         <el-select
           @change="showFruit"
           v-model="value1"
@@ -44,6 +46,13 @@
           @focus="showMeTheMoney($event)"
           ref="inputRef"
         ></el-input>
+        <el-input-number
+          v-model="value5"
+          @change="handleChange"
+          :min="1"
+          :max="10"
+          label="描述文字"
+        ></el-input-number>
       </div>
       <div class="block">
         <el-slider
@@ -98,9 +107,11 @@ export default {
       value1: "",
       value2: "💴💴💴",
       value3: 48,
-      value4: new Date()
+      value4: new Date(),
+      value5: 1
     };
   },
+
   mounted() {
     this.$refs.inputRef.$el.children[0].focus();
   },
@@ -130,6 +141,20 @@ export default {
     },
     formatTooltip(val) {
       return val / 100;
+    },
+    open() {
+      const h = this.$createElement;
+      this.$notify({
+        title: "Hey Guys",
+        message: h(
+          "i",
+          { style: "color: teal" },
+          "Button supported by element-ui, you should check it out"
+        )
+      });
+    },
+    handleChange(value) {
+      console.log(value);
     }
   }
 };
@@ -190,5 +215,8 @@ export default {
 }
 .el-tooltip__popper.is-light {
   border: 1px teal solid;
+}
+.el-input-number input {
+  width: 180px;
 }
 </style>
