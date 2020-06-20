@@ -55,8 +55,18 @@
         <el-calendar
           class="calendar"
           v-model="value4"
-          :range="['2020-06-08', '2020-06-14']"
+          :range="['2020-06-15', '2020-06-21']"
         ></el-calendar>
+        <div class="tip-tool">
+          <el-tooltip
+            class="item"
+            effect="light"
+            content="Let's ride this cute boat to his heart TODAY`"
+            placement="left-end"
+          >
+            <el-button>🛶</el-button>
+          </el-tooltip>
+        </div>
       </div>
     </div>
   </div>
@@ -168,5 +178,17 @@ export default {
 /* TODO el-calendar select doesn't work */
 .calendar {
   width: 50%;
+}
+.tip-tool button {
+  border-style: none;
+  border-radius: 16px;
+  font-size: 30px;
+  padding: 1px;
+}
+.tip-tool button:hover {
+  background: #fff;
+}
+.el-tooltip__popper.is-light {
+  border: 1px teal solid;
 }
 </style>
