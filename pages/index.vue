@@ -76,6 +76,13 @@
             <el-button>🛶</el-button>
           </el-tooltip>
         </div>
+        <el-breadcrumb separator-class="el-icon-arrow-right">
+          <el-breadcrumb-item :to="{ path: '/' }">Maybe</el-breadcrumb-item>
+          <el-breadcrumb-item><a href="/">Today</a></el-breadcrumb-item>
+          <el-breadcrumb-item class="no">Not</el-breadcrumb-item>
+          <el-breadcrumb-item><a href="/">The</a></el-breadcrumb-item>
+          <el-breadcrumb-item class="day">Day</el-breadcrumb-item>
+        </el-breadcrumb>
       </div>
     </div>
   </div>
@@ -218,5 +225,17 @@ export default {
 }
 .el-input-number input {
   width: 180px;
+}
+.el-breadcrumb {
+  margin: 0.5rem 0 0 2em;
+}
+.no .el-breadcrumb__inner {
+  color: red;
+  font-weight: bolder;
+}
+/* TODO: why not work */
+.day .el-breadcrumb__inner {
+  color: teal;
+  font-weight: bolder;
 }
 </style>
