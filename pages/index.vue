@@ -7,6 +7,15 @@
       </h1>
       <h2 class="subtitle">
         My prime Nuxt.js project
+        <el-popover
+          placement="right-start"
+          title="Dingding"
+          width="200"
+          trigger="hover"
+          content="How do you feel when you see this is page not dope what's so ever"
+        >
+          <el-button slot="reference"><i class="el-icon-bell"></i></el-button>
+        </el-popover>
       </h2>
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">
@@ -64,7 +73,7 @@
         <el-calendar
           class="calendar"
           v-model="value4"
-          :range="['2020-06-15', '2020-06-21']"
+          :range="['2020-06-22', '2020-06-28']"
         ></el-calendar>
         <div class="tip-tool">
           <el-tooltip
@@ -237,5 +246,13 @@ export default {
 .day .el-breadcrumb__inner {
   color: teal;
   font-weight: bolder;
+}
+.el-button.el-button--default.el-popover__reference {
+  padding: 0;
+  border: none;
+  font-size: 20px;
+}
+.el-icon-bell:hover {
+  color: teal;
 }
 </style>
