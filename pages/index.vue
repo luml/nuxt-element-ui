@@ -62,6 +62,12 @@
           :max="10"
           label="描述文字"
         ></el-input-number>
+        <el-rate
+          v-model="value6"
+          show-text
+          :texts="moods"
+          @change="fantastic"
+        ></el-rate>
       </div>
       <div class="block">
         <el-slider
@@ -124,7 +130,9 @@ export default {
       value2: "💴💴💴",
       value3: 48,
       value4: new Date(),
-      value5: 1
+      value5: 1,
+      value6: null,
+      moods: ["lonely", "sad", "happy", "creative", "fantastic"]
     };
   },
 
@@ -171,6 +179,13 @@ export default {
     },
     handleChange(value) {
       console.log(value);
+    },
+    fantastic(text) {
+      if (text === 5) {
+        document.querySelector(".el-rate__text").style.fontSize = "3rem";
+      } else {
+        document.querySelector(".el-rate__text").style.fontSize = "1rem";
+      }
     }
   }
 };
@@ -254,5 +269,11 @@ export default {
 }
 .el-icon-bell:hover {
   color: teal;
+}
+.el-input.el-input--suffix {
+  width: 300px;
+}
+.el-rate {
+  margin-left: 1rem;
 }
 </style>
