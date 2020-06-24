@@ -104,6 +104,13 @@
           <el-breadcrumb-item><a href="/">The</a></el-breadcrumb-item>
           <el-breadcrumb-item class="day">Day</el-breadcrumb-item>
         </el-breadcrumb>
+        <div class="time-picker">
+          <el-time-select
+            v-model="value7"
+            :picker-options="{ start: '09:00', step: '00:15', end: '18:00' }"
+            placeholder="pick a time"
+          ></el-time-select>
+        </div>
       </div>
     </div>
   </div>
@@ -147,7 +154,8 @@ export default {
       },
       value5: 1,
       value6: null,
-      moods: ["lonely", "sad", "happy", "creative", "fantastic"]
+      moods: ["lonely", "sad", "happy", "creative", "fantastic"],
+      value7: ""
     };
   },
 
@@ -293,5 +301,8 @@ export default {
 }
 .el-badge > button {
   height: 40px;
+}
+.time-picker {
+  margin-left: 2rem;
 }
 </style>
