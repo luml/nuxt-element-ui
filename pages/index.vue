@@ -62,6 +62,11 @@
           :max="10"
           label="描述文字"
         ></el-input-number>
+        <el-badge :value="100" class="item" type="primary"
+          ><el-button @click="countComments(100)" size="small"
+            >Comments</el-button
+          ></el-badge
+        >
         <el-rate
           v-model="value6"
           show-text
@@ -72,6 +77,7 @@
       <div class="block">
         <el-slider
           v-model="value3"
+          :marks="marks"
           :format-tooltip="formatTooltip"
           vertical
           height="100px"
@@ -130,6 +136,15 @@ export default {
       value2: "💴💴💴",
       value3: 48,
       value4: new Date(),
+      marks: {
+        0: "0%",
+        100: {
+          style: {
+            color: "#1989FA"
+          },
+          label: this.$createElement("strong", "100%")
+        }
+      },
       value5: 1,
       value6: null,
       moods: ["lonely", "sad", "happy", "creative", "fantastic"]
@@ -181,11 +196,11 @@ export default {
       console.log(value);
     },
     fantastic(text) {
-      if (text === 5) {
-        document.querySelector(".el-rate__text").style.fontSize = "3rem";
-      } else {
-        document.querySelector(".el-rate__text").style.fontSize = "1rem";
-      }
+      this.value2 = text + ` times more 💴`;
+    },
+    countComments(sum) {
+      console.log("Give sum to slider");
+      this.value3 = sum;
     }
   }
 };
@@ -274,6 +289,9 @@ export default {
   width: 300px;
 }
 .el-rate {
-  margin-left: 1rem;
+  margin-left: 2rem;
+}
+.el-badge > button {
+  height: 40px;
 }
 </style>
