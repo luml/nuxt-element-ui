@@ -112,6 +112,18 @@
           ></el-time-select>
         </div>
       </div>
+      <div class="footer">
+        <el-link href="https://element.eleme.io" target="_blank"
+          >Default💘</el-link
+        >
+        <el-link type="primary">Primary💙</el-link>
+        <el-link type="success">Success💚</el-link>
+        <el-link type="warnning">Warning💛</el-link>
+        <el-link type="danger">Danger💔</el-link>
+        <el-link type="info" href="https://dreamy-elio-gatsby.netlify.com"
+          >Check out💝</el-link
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -304,5 +316,8 @@ export default {
 }
 .time-picker {
   margin-left: 2rem;
+}
+.footer a {
+  margin: 4rem 0.5rem 0 0.5rem;
 }
 </style>
