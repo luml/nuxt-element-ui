@@ -31,9 +31,7 @@
         </a>
       </div>
       <div class="new-div">
-        <el-button @click="open"
-          >This is a button supported by element-ui</el-button
-        >
+        <el-button @click="open">A Message Button</el-button>
         <el-select
           @change="showFruit"
           v-model="value1"
@@ -85,7 +83,7 @@
         <el-calendar
           class="calendar"
           v-model="value4"
-          :range="['2020-06-22', '2020-06-28']"
+          :range="['2020-06-29', '2020-07-05']"
         ></el-calendar>
         <div class="tip-tool">
           <el-tooltip
@@ -117,6 +115,31 @@
           :predefine="predefineColors"
           @change="changeSomeBgc"
         ></el-color-picker>
+      </div>
+      <div>
+        <el-progress
+          :text-inside="true"
+          :stroke-width="26"
+          :percentage="70"
+        ></el-progress>
+        <el-progress
+          :text-inside="true"
+          :stroke-width="24"
+          :percentage="100"
+          status="success"
+        ></el-progress>
+        <el-progress
+          :text-inside="true"
+          :stroke-width="22"
+          :percentage="80"
+          status="warning"
+        ></el-progress>
+        <el-progress
+          :text-inside="true"
+          :stroke-width="20"
+          :percentage="50"
+          status="exception"
+        ></el-progress>
       </div>
       <div class="footer">
         <el-link href="https://element.eleme.io" target="_blank"
@@ -343,6 +366,9 @@ export default {
 }
 .time-picker {
   margin-left: 2rem;
+}
+.el-progress.el-progress--line.el-progress--text-inside {
+  margin: 1rem;
 }
 .footer a {
   margin: 4rem 0.5rem 0 0.5rem;
