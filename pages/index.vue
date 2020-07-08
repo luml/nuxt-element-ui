@@ -3,8 +3,12 @@
     <el-header
       height="50px"
       style="background-color: rgb(238, 241, 246);display: flex;justify-content: center;align-items: center"
-      >TO KILL THE BOREDOM</el-header
-    >
+      >TO KILL THE BOREDOM<el-avatar
+        shape="square"
+        :size="medium"
+        :src="circleUrl"
+      ></el-avatar
+    ></el-header>
     <el-container>
       <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
         <el-menu :default-openeds="['1', '2']">
@@ -117,7 +121,7 @@
               <el-calendar
                 class="calendar"
                 v-model="value4"
-                :range="['2020-06-29', '2020-07-05']"
+                :range="['2020-07-06', '2020-07-12']"
               ></el-calendar>
               <div class="tip-tool">
                 <el-tooltip
@@ -257,7 +261,10 @@ export default {
         "hsl(181, 100%, 37%)",
         "hsla(209, 100%, 56%, 0.73)",
         "#c7158577"
-      ]
+      ],
+      medium: "medium",
+      circleUrl:
+        "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
     };
   },
 
@@ -415,5 +422,8 @@ export default {
 }
 .footer a {
   margin: 4rem 0.5rem 0 0.5rem;
+}
+.el-avatar.el-avatar--medium.el-avatar--square {
+  margin-left: 1rem;
 }
 </style>
