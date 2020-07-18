@@ -121,7 +121,7 @@
               <el-calendar
                 class="calendar"
                 v-model="value4"
-                :range="['2020-07-06', '2020-07-12']"
+                :range="['2020-07-13', '2020-07-19']"
               ></el-calendar>
               <div class="tip-tool">
                 <el-tooltip
@@ -185,6 +185,34 @@
                 status="exception"
               ></el-progress>
             </div>
+            <div>
+              <el-table :data="tableData" style="width: 100%">
+                <el-table-column type="expand">
+                  <template slot-scope="props">
+                    <el-form
+                      label-position="left"
+                      inline
+                      class="demo-table-expand"
+                    >
+                      <el-form-item label="name">
+                        <span>{{ props.row.name }}</span>
+                      </el-form-item>
+                      <el-form-item label="city">
+                        <span>{{ props.row.city }}</span>
+                      </el-form-item>
+                      <el-form-item label="hobby">
+                        <span>{{ props.row.hobby }}</span>
+                      </el-form-item>
+                    </el-form>
+                  </template>
+                </el-table-column>
+                <el-table-column label="title📌" prop="title">
+                </el-table-column>
+                <el-table-column label="name" prop="name"> </el-table-column>
+                <el-table-column label="hobby♥️" prop="hobby">
+                </el-table-column>
+              </el-table>
+            </div>
             <div class="footer">
               <el-link href="https://element.eleme.io" target="_blank"
                 >Default💘</el-link
@@ -213,6 +241,20 @@ export default {
   },
   data() {
     return {
+      tableData: [
+        {
+          title: "writer",
+          name: "Oliver",
+          city: "newpark",
+          hobby: "eating"
+        },
+        {
+          title: "singer",
+          name: "Eric",
+          city: "beijing",
+          hobby: "traveling"
+        }
+      ],
       options: [
         {
           value: "apple",
@@ -425,5 +467,17 @@ export default {
 }
 .el-avatar.el-avatar--medium.el-avatar--square {
   margin-left: 1rem;
+}
+.demo-table-expand {
+  font-size: 0;
+}
+.demo-table-expand label {
+  width: 90px;
+  color: #99a9bf;
+}
+.demo-table-expand .el-form-item {
+  margin-right: 0;
+  margin-bottom: 0;
+  width: 50%;
 }
 </style>
