@@ -3,17 +3,17 @@
     <el-header
       height="50px"
       style="background-color: rgb(238, 241, 246);display: flex;justify-content: center;align-items: center"
-      >TO KILL THE BOREDOM<el-avatar
-        shape="square"
-        :size="medium"
-        :src="circleUrl"
-      ></el-avatar
-    ></el-header>
+    >
+      TO KILL THE BOREDOM
+      <el-avatar shape="square" :size="medium" :src="circleUrl"></el-avatar>
+    </el-header>
     <el-container>
       <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
         <el-menu :default-openeds="['1', '2']">
           <el-submenu index="1">
-            <template slot="title"><i class="el-icon-message">🍑</i></template>
+            <template slot="title">
+              <i class="el-icon-message">🍑</i>
+            </template>
             <el-menu-item-group>
               <template slot="title">🥦</template>
               <el-menu-item index="1-1">🥦</el-menu-item>
@@ -21,7 +21,9 @@
             </el-menu-item-group>
           </el-submenu>
           <el-submenu index="2">
-            <template slot="title"><i class="el-icon-message">🍎</i></template>
+            <template slot="title">
+              <i class="el-icon-message">🍎</i>
+            </template>
             <el-menu-item-group>
               <template slot="title">🥬</template>
               <el-menu-item index="2-1">🥬</el-menu-item>
@@ -34,9 +36,7 @@
         <div class="container">
           <div>
             <!-- <logo /> -->
-            <h1 class="title">
-              nuxt-ui-element
-            </h1>
+            <h1 class="title">nuxt-ui-element</h1>
             <h2 class="subtitle">
               My prime Nuxt.js project
               <el-popover
@@ -46,27 +46,19 @@
                 trigger="hover"
                 content="How do you feel when you see this is page not dope what's so ever"
               >
-                <el-button slot="reference"
-                  ><i class="el-icon-bell"></i
-                ></el-button>
+                <el-button slot="reference">
+                  <i class="el-icon-bell"></i>
+                </el-button>
               </el-popover>
             </h2>
             <div class="links">
-              <a
-                href="https://nuxtjs.org/"
-                target="_blank"
-                class="button--green"
-              >
-                Documentation
-              </a>
+              <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
               <a
                 href="https://github.com/nuxt/nuxt.js"
                 target="_blank"
                 class="button--grey"
                 style="pointer-events: none"
-              >
-                GitHub
-              </a>
+              >GitHub</a>
             </div>
             <div class="new-div">
               <el-button @click="open">A Message Button</el-button>
@@ -81,8 +73,7 @@
                   :key="item.value"
                   :label="item.label"
                   :value="item.value"
-                >
-                </el-option>
+                ></el-option>
               </el-select>
               <el-input
                 v-model="value2"
@@ -98,17 +89,10 @@
                 :max="10"
                 label="描述文字"
               ></el-input-number>
-              <el-badge :value="100" class="item" type="primary"
-                ><el-button @click="countComments(100)" size="small"
-                  >Comments</el-button
-                ></el-badge
-              >
-              <el-rate
-                v-model="value6"
-                show-text
-                :texts="moods"
-                @change="fantastic"
-              ></el-rate>
+              <el-badge :value="100" class="item" type="primary">
+                <el-button @click="countComments(100)" size="small">Comments</el-button>
+              </el-badge>
+              <el-rate v-model="value6" show-text :texts="moods" @change="fantastic"></el-rate>
             </div>
             <div class="block">
               <el-slider
@@ -118,11 +102,7 @@
                 vertical
                 height="100px"
               ></el-slider>
-              <el-calendar
-                class="calendar"
-                v-model="value4"
-                :range="['2020-07-13', '2020-07-19']"
-              ></el-calendar>
+              <el-calendar class="calendar" v-model="value4" :range="['2020-07-13', '2020-07-19']"></el-calendar>
               <div class="tip-tool">
                 <el-tooltip
                   class="item"
@@ -134,12 +114,14 @@
                 </el-tooltip>
               </div>
               <el-breadcrumb separator-class="el-icon-arrow-right">
-                <el-breadcrumb-item :to="{ path: '/' }"
-                  >Maybe</el-breadcrumb-item
-                >
-                <el-breadcrumb-item><a href="/">Today</a></el-breadcrumb-item>
+                <el-breadcrumb-item :to="{ path: '/' }">Maybe</el-breadcrumb-item>
+                <el-breadcrumb-item>
+                  <a href="/">Today</a>
+                </el-breadcrumb-item>
                 <el-breadcrumb-item class="no">Not</el-breadcrumb-item>
-                <el-breadcrumb-item><a href="/">The</a></el-breadcrumb-item>
+                <el-breadcrumb-item>
+                  <a href="/">The</a>
+                </el-breadcrumb-item>
                 <el-breadcrumb-item class="day">Day</el-breadcrumb-item>
               </el-breadcrumb>
               <div class="time-picker">
@@ -161,23 +143,14 @@
               ></el-color-picker>
             </div>
             <div>
-              <el-progress
-                :text-inside="true"
-                :stroke-width="26"
-                :percentage="70"
-              ></el-progress>
+              <el-progress :text-inside="true" :stroke-width="26" :percentage="70"></el-progress>
               <el-progress
                 :text-inside="true"
                 :stroke-width="24"
                 :percentage="100"
                 status="success"
               ></el-progress>
-              <el-progress
-                :text-inside="true"
-                :stroke-width="22"
-                :percentage="80"
-                status="warning"
-              ></el-progress>
+              <el-progress :text-inside="true" :stroke-width="22" :percentage="80" status="warning"></el-progress>
               <el-progress
                 :text-inside="true"
                 :stroke-width="20"
@@ -186,14 +159,17 @@
               ></el-progress>
             </div>
             <div>
-              <el-table :data="tableData" style="width: 100%">
+              <el-table
+                :data="tableData"
+                style="width: 100%"
+                border
+                stripe
+                highlight-current-row
+                v-loading="loading"
+              >
                 <el-table-column type="expand">
                   <template slot-scope="props">
-                    <el-form
-                      label-position="left"
-                      inline
-                      class="demo-table-expand"
-                    >
+                    <el-form label-position="left" inline class="demo-table-expand">
                       <el-form-item label="name">
                         <span>{{ props.row.name }}</span>
                       </el-form-item>
@@ -206,29 +182,32 @@
                     </el-form>
                   </template>
                 </el-table-column>
-                <el-table-column label="title📌" prop="title">
-                </el-table-column>
-                <el-table-column label="name" prop="name"> </el-table-column>
-                <el-table-column label="hobby♥️" prop="hobby">
+                <el-table-column label="title📌" prop="title"></el-table-column>
+                <el-table-column label="name" prop="name"></el-table-column>
+                <el-table-column label="hobby♥️" prop="hobby"></el-table-column>
+                <el-table-column fixed="right" label="more" width="100">
+                  <template slot-scope="scope">
+                    <el-button @click="handleClick(scope.row)" type="text" size="small">email</el-button>
+                  </template>
                 </el-table-column>
               </el-table>
             </div>
             <div class="footer">
-              <el-link href="https://element.eleme.io" target="_blank"
-                >Default💘</el-link
-              >
+              <el-link href="https://element.eleme.io" target="_blank">Default💘</el-link>
               <el-link type="primary">Primary💙</el-link>
               <el-link type="success">Success💚</el-link>
               <el-link type="warnning">Warning💛</el-link>
               <el-link type="danger">Danger💔</el-link>
-              <el-link type="info" href="https://dreamy-elio-gatsby.netlify.com"
-                >Check out💝</el-link
-              >
+              <el-link type="info" href="https://dreamy-elio-gatsby.netlify.com">Check out💝</el-link>
             </div>
           </div>
         </div>
       </el-container>
     </el-container>
+    <el-drawer title="I'm the title" :visible.sync="drawer" :with-header="false">
+      <span>Here I am!, please feel free to email me and ask me anything</span>
+      <p>{{email}}</p>
+    </el-drawer>
   </el-container>
 </template>
 
@@ -241,18 +220,30 @@ export default {
   },
   data() {
     return {
+      loading: false,
+      drawer: false,
+      email: "",
       tableData: [
         {
           title: "writer",
           name: "Oliver",
           city: "newpark",
-          hobby: "eating"
+          hobby: "eating",
+          email: "oliver@gmail.com"
         },
         {
           title: "singer",
           name: "Eric",
           city: "beijing",
-          hobby: "traveling"
+          hobby: "traveling",
+          email: "eric@gmail.com"
+        },
+        {
+          title: "dancer",
+          name: "Emma",
+          city: "deleng",
+          hobby: "collecting",
+          email: "emma@gmail.com"
         }
       ],
       options: [
@@ -363,6 +354,10 @@ export default {
     },
     changeSomeBgc() {
       document.querySelector("body").style.backgroundColor = this.color;
+    },
+    handleClick(row) {
+      this.drawer = true;
+      this.email = row.email;
     }
   }
 };
