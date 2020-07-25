@@ -62,6 +62,7 @@
             </div>
             <div class="new-div">
               <el-button @click="open">A Message Button</el-button>
+              <el-button @click="second">go second</el-button>
               <el-select
                 @change="showFruit"
                 v-model="value1"
@@ -205,7 +206,7 @@
       </el-container>
     </el-container>
     <el-drawer title="I'm the title" :visible.sync="drawer" :with-header="false">
-      <span>Here I am!, please feel free to email me and ask me anything</span>
+      <span>🍋 Here I am!, please feel free to email me and ask me anything</span>
       <p>{{email}}</p>
     </el-drawer>
   </el-container>
@@ -342,6 +343,9 @@ export default {
         )
       });
     },
+    second() {
+      this.$router.push("/second");
+    },
     handleChange(value) {
       console.log(value);
     },
@@ -474,5 +478,17 @@ export default {
   margin-right: 0;
   margin-bottom: 0;
   width: 50%;
+}
+.el-drawer__body {
+  display: flex;
+  flex-direction: column;
+  margin: 2em;
+  padding: 1rem;
+}
+.el-drawer__body span {
+  font-size: 20px;
+}
+.el-drawer__body p {
+  padding: 1rem 0;
 }
 </style>
