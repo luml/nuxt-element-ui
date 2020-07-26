@@ -1,12 +1,22 @@
 <template>
   <div class="box">
     Hey there. I'm second.
+    <div class="blcok">
+      <span class="demonstration">Hot Summer</span>
+      <el-image :src="src"></el-image>
+    </div>
     <el-button @click="goBack">Go Back</el-button>
   </div>
 </template>
 
 <script lang="ts">
 export default {
+  data() {
+    return {
+      src: "../../assets/hotsummer.JPG"
+    };
+  },
+
   methods: {
     goBack() {
       this.$router.go("-1");
