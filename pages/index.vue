@@ -403,6 +403,9 @@ export default {
   display: flex;
   margin-top: 1rem;
 }
+.new-div > button:last-of-type {
+  margin-left: 0;
+}
 .block {
   margin: 1rem 1rem 1rem 0;
   display: flex;
