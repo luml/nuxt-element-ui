@@ -167,6 +167,7 @@
                 stripe
                 highlight-current-row
                 v-loading="loading"
+                size="small"
               >
                 <el-table-column type="expand">
                   <template slot-scope="props">
@@ -493,5 +494,8 @@ export default {
 }
 .el-drawer__body p {
   padding: 1rem 0;
+}
+.el-table .cell {
+  line-height: 16px;
 }
 </style>
