@@ -8,11 +8,12 @@
       <el-avatar shape="square" :size="medium" :src="circleUrl"></el-avatar>
     </el-header>
     <el-container>
-      <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-        <el-menu :default-openeds="['1', '2']">
+      <el-aside width="auto" style="background-color: rgb(238, 241, 246)">
+        <el-menu :collapse="isCollapse" :default-openeds="['1', '2']">
           <el-submenu index="1">
             <template slot="title">
-              <i class="el-icon-message">🍑</i>
+              <i class="el-icon-message"></i>
+              <span>🍑</span>
             </template>
             <el-menu-item-group>
               <template slot="title">🥦</template>
@@ -22,7 +23,8 @@
           </el-submenu>
           <el-submenu index="2">
             <template slot="title">
-              <i class="el-icon-message">🍎</i>
+              <i class="el-icon-message"></i>
+              <span>🍎</span>
             </template>
             <el-menu-item-group>
               <template slot="title">🥬</template>
@@ -31,6 +33,12 @@
             </el-menu-item-group>
           </el-submenu>
         </el-menu>
+        <el-button v-if="isCollapse" class="side-foot" @click="(() => {
+            isCollapse = !isCollapse;
+          })">➡️</el-button>
+        <el-button v-else-if="!isCollapse" class="side-foot" @click="(() => {
+            isCollapse = !isCollapse;
+          })">⬅️</el-button>
       </el-aside>
       <el-container>
         <div class="container">
@@ -222,6 +230,7 @@ export default {
   },
   data() {
     return {
+      isCollapse: false,
       loading: false,
       drawer: false,
       email: "",
@@ -497,5 +506,9 @@ export default {
 }
 .el-table .cell {
   line-height: 16px;
+}
+.side-foot {
+  position: fixed;
+  bottom: 0;
 }
 </style>
