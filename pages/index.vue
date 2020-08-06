@@ -9,7 +9,7 @@
     </el-header>
     <el-container>
       <el-aside width="auto" style="background-color: rgb(238, 241, 246)">
-        <el-menu :collapse="isCollapse" :default-openeds="['1', '2']">
+        <el-menu :unique-opened="isOpened" :collapse="isCollapse" :default-openeds="['1', '2']">
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-message"></i>
@@ -231,6 +231,7 @@ export default {
   data() {
     return {
       isCollapse: false,
+      isOpened: true,
       loading: false,
       drawer: false,
       email: "",
