@@ -8,8 +8,13 @@
       <el-avatar shape="square" :size="medium" :src="circleUrl"></el-avatar>
     </el-header>
     <el-container>
-      <el-aside width="auto" style="background-color: rgb(238, 241, 246)">
-        <el-menu :unique-opened="isOpened" :collapse="isCollapse" :default-openeds="['1', '2']">
+      <el-aside width="auto" style="background-color: #ffd04b">
+        <el-menu
+          :unique-opened="isOpened"
+          :collapse="isCollapse"
+          :default-openeds="['1', '2']"
+          background-color="#ffd04b"
+          >
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-message"></i>
@@ -32,13 +37,18 @@
               <el-menu-item index="2-2">🥬</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
+          <el-menu-item>
+            <template>
+              <el-button v-if="isCollapse" class="side-foot" @click="(() => {
+                isCollapse = !isCollapse;
+              })">➡️</el-button>
+            <el-button v-else-if="!isCollapse" class="side-foot" @click="(() => {
+                isCollapse = !isCollapse;
+              })">⬅️</el-button>
+            </template>
+
+          </el-menu-item>
         </el-menu>
-        <el-button v-if="isCollapse" class="side-foot" @click="(() => {
-            isCollapse = !isCollapse;
-          })">➡️</el-button>
-        <el-button v-else-if="!isCollapse" class="side-foot" @click="(() => {
-            isCollapse = !isCollapse;
-          })">⬅️</el-button>
       </el-aside>
       <el-container>
         <div class="container">
@@ -511,5 +521,6 @@ export default {
 .side-foot {
   position: fixed;
   bottom: 0;
+  left: 0;
 }
 </style>
