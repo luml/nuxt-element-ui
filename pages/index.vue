@@ -37,18 +37,15 @@
               <el-menu-item index="2-2">🥬</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
-          <el-menu-item>
-            <template>
-              <el-button v-if="isCollapse" class="side-foot" @click="(() => {
-                isCollapse = !isCollapse;
-              })">➡️</el-button>
-            <el-button v-else-if="!isCollapse" class="side-foot" @click="(() => {
-                isCollapse = !isCollapse;
-              })">⬅️</el-button>
-            </template>
-
-          </el-menu-item>
         </el-menu>
+        <div class="side-foot">
+          <el-button v-if="isCollapse" @click="(() => {
+            isCollapse = !isCollapse;
+          })">➡️</el-button>
+        <el-button v-else-if="!isCollapse" @click="(() => {
+            isCollapse = !isCollapse;
+          })">⬅️</el-button>
+        </div>
       </el-aside>
       <el-container>
         <div class="container">
@@ -523,4 +520,5 @@ export default {
   bottom: 0;
   left: 0;
 }
+
 </style>
